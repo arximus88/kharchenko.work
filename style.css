@@ -4,6 +4,20 @@ body{
     font-family: 'Alegreya Sans', sans-serif;
 }
 
+.button-md {
+    border-style: solid;
+    border-radius: 4px;
+    height: 32px;
+    align-items: center;
+    display: flex;
+    margin: auto;
+}
+
+.button-md a{
+    color:#000; 
+    font-weight:bold; 
+    text-decoration:none;
+}
 .centrify-text {
     text-align: center;
 }
@@ -11,4 +25,19 @@ body{
 .kitties {
     display: flex;
     justify-content: center;
+}
+
+.container {
+    height: 200px;
+    position: relative;
+    border: 3px solid green;
+}
+  
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
