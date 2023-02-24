@@ -45,19 +45,10 @@ body{
 
 .kitties-images {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
-
-/* .kitties-images img {
-    margin: 8px;
-    transition: all 0.15s ease-out;
-}
-
-.kitties-images img:hover {
-      transform: translateY(-10px);
-      }
-     */
 
 .kitties-images img:hover {
     animation: jump 0.3s ease-out;
