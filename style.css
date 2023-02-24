@@ -23,6 +23,7 @@ body{
     color: #fff;
     font-weight: bold;
     text-decoration: none;
+    text-transform: capitalize;
     padding: 8px 16px;
     border-radius: 30px;
     transition: background-color 0.3s;
@@ -48,20 +49,43 @@ body{
     align-items: center;
 }
 
-.kitties-images img {
+/* .kitties-images img {
     margin: 8px;
+    transition: all 0.15s ease-out;
 }
 
+.kitties-images img:hover {
+      transform: translateY(-10px);
+      }
+     */
+
+.kitties-images img:hover {
+    animation: jump 0.3s ease-out;
+  }
+  
+  @keyframes jump {
+    0% {
+        transform: translateY(0px);
+      }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+      }
+    
+}
 .kitties-instagram {
     margin-top: 24px;
 }
-
+  
 .kitties-instagram a {
     display: inline-block;
     background-color: #1da1f2;
     color: #fff;
     font-weight: bold;
     text-decoration: none;
+    text-transform: capitalize;
     padding: 8px 16px;
     border-radius: 30px;
     transition: background-color 0.3s;
