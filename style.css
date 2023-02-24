@@ -4,40 +4,69 @@ body{
     font-family: 'Alegreya Sans', sans-serif;
 }
 
-.button-md {
-    border-style: solid;
-    border-radius: 4px;
-    height: 32px;
-    align-items: center;
-    display: flex;
-    margin: auto;
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.button-md a{
-    color:#000; 
-    font-weight:bold; 
-    text-decoration:none;
-}
 .centrify-text {
-    text-align: center;
+  text-align: center;
+}
+
+
+.button-md a {
+    display: inline-block;
+    background-color: #0a66c2;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 30px;
+    transition: background-color 0.3s;
+}
+
+.button-md a:hover {
+    background-color: #094c8e;
 }
 
 .kitties {
-    display: flex;
-    justify-content: center;
+    text-align: center;
+    margin-top: 48px;
 }
 
-.container {
-    height: 200px;
-    position: relative;
-    border: 3px solid green;
+.kitties-title {
+    font-size: 24px;
+    margin-bottom: 24px;
 }
-  
-.center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+
+.kitties-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.kitties-images img {
+    margin: 8px;
+}
+
+.kitties-instagram {
+    margin-top: 24px;
+}
+
+.kitties-instagram a {
+    display: inline-block;
+    background-color: #1da1f2;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 30px;
+    transition: background-color 0.3s;
+}
+
+.kitties-instagram a:hover {
+    background-color: #0d8de8;
 }
