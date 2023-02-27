@@ -1,7 +1,59 @@
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&display=swap');
 
 body{
-    font-family: 'Alegreya Sans', sans-serif;
+    font-family: 'Golos Text', sans-serif;
+}
+
+/* H1: used for main headings */
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0px;
+}
+
+/* H2: used for subheadings */
+h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0px;
+}
+
+/* H3: used for section headings */
+h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0px;
+}
+
+/* H4: used for sub-section headings */
+h4 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0px;
+}
+
+/* Primary text: used for main body text */
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Secondary text: used for captions, labels, and smaller text */
+small, .caption {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+/* Smaller text: used for fine print or footnotes */
+.footnote {
+  font-size: 0.7rem;
+  color: #777;
+}
+
+/* Bigger text: used for emphasis or call to action */
+.lead {
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .center {
@@ -15,7 +67,6 @@ body{
 .centrify-text {
   text-align: center;
 }
-
 
 .button-md a {
     display: inline-block;
