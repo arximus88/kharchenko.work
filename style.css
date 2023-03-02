@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;700&display=swap');
 
 body{
-    font-family: 'Golos Text', sans-serif;
+  font-family: 'Urbanist', sans-serif;
 }
 
 /* H1: used for main headings */
@@ -13,21 +13,21 @@ h1 {
 
 /* H2: used for subheadings */
 h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
   margin: 0px;
 }
 
 /* H3: used for section headings */
 h3 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   margin: 0px;
 }
 
 /* H4: used for sub-section headings */
 h4 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
   margin: 0px;
 }
@@ -36,6 +36,8 @@ h4 {
 p {
   font-size: 1rem;
   line-height: 1.5;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
 }
 
 /* Secondary text: used for captions, labels, and smaller text */
@@ -62,6 +64,8 @@ small, .caption {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  max-width: 720px;
+  margin: auto;
 }
 
 .centrify-text {
@@ -78,6 +82,7 @@ small, .caption {
     padding: 8px 16px;
     border-radius: 30px;
     transition: background-color 0.3s;
+    margin-top: 1rem;
 }
 
 .button-md a:hover {
@@ -86,12 +91,7 @@ small, .caption {
 
 .kitties {
     text-align: center;
-    margin-top: 48px;
-}
-
-.kitties-title {
-    font-size: 24px;
-    margin-bottom: 24px;
+    margin-top: 128px;
 }
 
 .kitties-images {
