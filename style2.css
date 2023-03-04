@@ -86,6 +86,38 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* PRELOADER */
+.preloader {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--body-bg-color);
+    transition: opacity 0.05s ease-out;
+  }
+  
+.spinner {
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    border: 3px solid var(--slight-basic);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Hide preloader when content is loaded */
+    body.loaded .preloader {
+    opacity: 0;
+    pointer-events: none;
+}
+
 
 /* UI */
 aside {
@@ -100,7 +132,7 @@ aside {
     padding: 64px 32px;
     order: 0;
     align-self: stretch;
-    flex-grow: 1;
+    flex-grow: 0;
 
 }
 
@@ -173,7 +205,7 @@ main {
     /* margin-left: 250px; */
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    /* align-items: flex-start; */
     padding: 64px;
     gap: 32px;
     order: 1;
@@ -185,6 +217,30 @@ main {
 section {
     line-height: 1.5;
 }
+
+.menu-toggle {
+    display: none;
+  }
+
+.mobile-nav {
+    display: none;
+}
+
+.open .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    height: calc(100vh - 50px);
+    width: 100%;
+  }
 
 @media (max-width: 768px) {
     aside {
@@ -198,6 +254,77 @@ section {
         margin-left: 0;
         padding: 32px;
     }
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+    }
+    .hamburger {
+        display: block;
+        width: 24px;
+        height: 3px;
+        background-color: #000;
+        margin: 4px 0;
+    }
+    .desktop-nav {
+        display: none;
+    }
+    .mobile-nav {
+        display: block;
+    }
+    /* aside {
+        background-color: var(--body-bg-color);
+        border-right: 1px solid var(--slight-basic);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 64px 32px;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 1;
+    
+    } */
+    
+    .sidebar-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 12px;
+        margin: 12px;
+        gap: 12px;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        border: 1px solid transparent;
+        border-radius: 12px;
+        z-index: 1;
+        background-clip: padding-box;
+    }
+    .sidebar-header:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        margin: -1px;
+        border-radius: inherit;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 74.04%);
+      }
+    .sidebar-header:after {
+        content: '';
+        background-color: var(--body-bg-color);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border-radius: inherit;
+        z-index: -1;
+      }
 }
 
 
@@ -279,6 +406,53 @@ input:checked+.slider:before {
 }
 
 
+/* Projects -- --------------*/
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 24px;
+    margin-top: 24px;
+  }
+  
+  .card {
+    position: relative;
+    background-color: var(--body-bg-color);
+    box-shadow: 0 0 10px var(--slight-basic);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease-out;
+  }
+  
+  .card:hover {
+    border: var(--tertiary-basic) solid 1px;
+  }
+  
+  .card-image {
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .card-title {
+    margin: 10px 0;
+    font-size: 1.2em;
+  }
+  
+  .card-client {
+    margin: 5px 0;
+    font-size: 0.8em;
+    color: #999;
+  }
+  
+  .card-description {
+    margin: 10px 0;
+    font-size: 0.9em;
+    color: #555;
+  }
+  
+
+
+
 /* Icons -- Set Up ----------*/
 .icon {
     background-repeat: no-repeat;
@@ -320,34 +494,23 @@ a:hover .icon {
   }
 
   /* Icons -- Images ----------*/
-  .icon.i-presentation {
-    background-image: url(images/icons/presentation-chart-01.svg);
-  }
-  
-  [data-theme="light"] .icon.i-presentation {
-    background-image: url(images/icons/presentation-chart-01-inv.svg);
-  }
+  .icon.i-presentation {background-image: url(images/icons/presentation-chart-01.svg);}
+  [data-theme="light"] .icon.i-presentation {background-image: url(images/icons/presentation-chart-01-inv.svg);}
 
-  .icon.i-user {
-    background-image: url(images/icons/user-edit.svg);
-  }
-  
-  [data-theme="light"] .icon.i-user {
-    background-image: url(images/icons/user-edit-inv.svg);
-  }
+  .icon.i-user {background-image: url(images/icons/user-edit.svg);}
+  [data-theme="light"] .icon.i-user {background-image: url(images/icons/user-edit-inv.svg);}
 
-  .icon.i-misc {
-    background-image: url(images/icons/code-snippet-02.svg);
-  }
-  
-  [data-theme="light"] .icon.i-misc {
-    background-image: url(images/icons/code-snippet-02-inv.svg);
-  }
+  .icon.i-misc {background-image: url(images/icons/code-snippet-02.svg);}
+  [data-theme="light"] .icon.i-misc {background-image: url(images/icons/code-snippet-02-inv.svg);  }
 
-  .icon.i-stars {
-    background-image: url(images/icons/stars-03.svg);
-  }
-  
-  [data-theme="light"] .icon.i-stars {
-    background-image: url(images/icons/stars-03-inv.svg);
-  }
+  .icon.i-stars {background-image: url(images/icons/stars-03.svg);}
+  [data-theme="light"] .icon.i-stars {background-image: url(images/icons/stars-03-inv.svg);}
+
+  .icon.i-menu {background-image: url(images/icons/menu-04.png);}
+  [data-theme="light"] .icon.i-menu {background-image: url(images/icons/menu-04-inv.png);}
+
+
+
+
+  /* CREDITS */
+  /* Video by <a href="https://pixabay.com/users/tommyvideo-3092371/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=video&amp;utm_content=121039">Tomislav Jakupec</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=video&amp;utm_content=121039">Pixabay</a> */

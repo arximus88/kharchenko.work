@@ -13,15 +13,16 @@
 
 <body>
     <div class="bg-img img-main"></div>
-    <aside>
+
+    <aside class="desktop-nav">
         <div class="sidebar-header">
             <img src="images/logo-bo-1.png" alt="Logo">
             <h2 class="logo-text">Borys's Place</h2>
+            <div class="menu-toggle"><span class="icon i-menu tertiary"></span></div>
         </div>
         <nav>
             <ul>
-                <li><a href="page-main.html"><span class="icon i-user tertiary"></span>
-                    I Am</a></li>
+                <li><a href="page-main.html"><span class="icon i-user tertiary"></span>I Am</a></li>
                 <li><a href="page-proj.html"><span class="icon i-presentation tertiary"></span> Projects (TBD)</a></li>
                 <li><a href="page-cats.html"><span class="icon i-stars tertiary"></span>Cats</a></li>
                 <li><a href="page-misc.html"><span class="icon i-misc tertiary"></span> Misc (TBD)</a></li>
@@ -34,6 +35,31 @@
                 <span class="slider round"></span>
             </label>
         </div>
+    </aside>
+    <aside class="mobile-nav">
+        <div class="sidebar-header" onclick="toggleMobileMenu(this)">
+            <img src="images/logo-bo-1.png" alt="Logo">
+            <h2 class="logo-text">Borys's Place</h2>
+            <div class="menu-toggle"><span class="icon i-menu tertiary"></span></div>
+            <div class="mobile-menu">
+                <nav>
+                    <ul>
+                        <li><a href="page-main.html"><span class="icon i-user tertiary"></span>I Am</a></li>
+                        <li><a href="page-proj.html"><span class="icon i-presentation tertiary"></span> Projects (TBD)</a></li>
+                        <li><a href="page-cats.html"><span class="icon i-stars tertiary"></span>Cats</a></li>
+                        <li><a href="page-misc.html"><span class="icon i-misc tertiary"></span> Misc (TBD)</a></li>
+                    </ul>
+                </nav>
+                <div class="sidebar-footer">
+                    <p>Dark Mode</p>
+                    <label class="switch">
+                        <input type="checkbox" id="mode-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
     </aside>
     <main>
         <header>
@@ -49,4 +75,5 @@
         </section>
     </main>
     <script src="/scripts/theme-switcher.js"></script>
+    <script src="/scripts/hamburger.js"></script>
 </body>
