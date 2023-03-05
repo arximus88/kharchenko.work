@@ -47,6 +47,12 @@ body {
     bottom: 0px;
     z-index: -1;
 }
+
+.bg-img img {
+    position: fixed;
+    z-index: -1;
+  }
+
 .bg-img::before {
     content: "";
     position: inherit;
@@ -67,7 +73,15 @@ body {
     z-index: -1;
   }
 
-[data-theme="light"]  #bg-video {filter: invert(100%) hue-rotate(140deg);}
+[data-theme="light"] #bg-video {filter: invert(100%) hue-rotate(140deg);}
+[data-theme="light"] .bg-img img {filter: invert(100%) hue-rotate(140deg);}
+
+@media (prefers-reduced-motion: reduce) {
+#bg-video {
+    display: none;
+}
+}
+
 
 a {
     color: var(--link-color);
