@@ -2,6 +2,7 @@
 
 :root {
     --body-bg-color: #191B1D;
+    --body-bg-shade: rgba(30, 30, 30, 0.36);
     --primary-basic: #FFFFFF;
     --secondary-basic: rgba(255, 255, 255, 0.8);
     --tertiary-basic: rgba(255, 255, 255, 0.64);
@@ -15,6 +16,7 @@
 /* Light mode styles */
 [data-theme="light"] {
     --body-bg-color: #FFFFFF;
+    --body-bg-shade: rgba(255, 255, 255, 0.32);
     --primary-basic: #1B1C1E;
     --secondary-basic: rgba(30, 30, 30, 0.88);
     --tertiary-basic: rgba(30, 30, 30, 0.76);
@@ -38,18 +40,34 @@ body {
 }
 
 .bg-img {
-    position: absolute;
+    position: fixed;
     width: 720px;
     right: 0px;
     top: 0px;
     bottom: 0px;
-    background: linear-gradient(0deg, rgba(25, 27, 29, 0.76), rgba(25, 27, 29, 0.76)), radial-gradient(99.99% 100% at 100% 0%, rgba(24, 26, 28, 0) 0%, #191B1D 100%);
     z-index: -1;
 }
-.bg-img.img-main {
-    background: url(images/bg-img.png);
+.bg-img::before {
+    content: "";
+    position: inherit;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 720px;
+    z-index: 0;
+    background:  radial-gradient(99.99% 100% at 100% 0%, var(--body-bg-shade) 0%, var(--body-bg-color));
 }
 
+#bg-video {
+    position: inherit;
+    width: inherit;
+    right: inherit;
+    top: inherit;
+    bottom: inherit;
+    z-index: -1;
+  }
+
+[data-theme="light"]  #bg-video {filter: invert(100%) hue-rotate(140deg);}
 
 a {
     color: var(--link-color);
@@ -85,39 +103,6 @@ h1 {
     margin-top: 0;
     margin-bottom: 20px;
 }
-
-/* PRELOADER */
-.preloader {
-    position: fixed;
-    z-index: 9999;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--body-bg-color);
-    transition: opacity 0.05s ease-out;
-  }
-  
-.spinner {
-    width: 50px;
-    height: 50px;
-    margin: auto;
-    border: 3px solid var(--slight-basic);
-    border-top-color: transparent;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-/* Hide preloader when content is loaded */
-    body.loaded .preloader {
-    opacity: 0;
-    pointer-events: none;
-}
-
 
 /* UI */
 aside {
