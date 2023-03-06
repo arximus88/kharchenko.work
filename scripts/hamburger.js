@@ -1,9 +1,13 @@
-function toggleMobileMenu (menu) {
-  menu.classList.toggle('open');
-}
-// const menuToggle = document.querySelector('.menu-toggle');
-// const sidebar = document.querySelector('aside');
+// function toggleMobileMenu (menu) {
+//   menu.classList.toggle('open');
+// }
 
-// menuToggle.addEventListener('click', function () {
-//   sidebar.classList.toggle('active');
-// });
+
+const sidebarHeader = document.querySelector('.sidebar-header');
+const mobileMenu = document.querySelector('.mobile-menu');
+
+function toggleMobileMenu() {
+  mobileMenu.classList.toggle('open');
+}
+
+sidebarHeader.addEventListener('click', toggleMobileMenu);

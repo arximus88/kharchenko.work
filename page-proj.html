@@ -6,20 +6,52 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Borys Kharchenko">
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 </head>
 <body>
-    <aside>
-        <div class="sidebar-header">
-            <img src="images/logo-bo-1.png" alt="Logo">
-            <h2 class="logo-text">Borys's Place</h2>
-        </div>
+  <div class="bg-container">
+    <video class="bg-video" autoplay muted loop poster="images/bg-img.webp">
+        <source src="media/bg-vid-dark_1.webm" type="video/webm">
+        <source src="media/bg-vid-dark_1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+<aside class="desktop-nav">
+    <div class="sidebar-header">
+        <img src="images/logo-bo-1.png" alt="Logo">
+        <h2 class="logo-text">Borys's Place</h2>
+        <div class="menu-toggle"><span class="icon i-menu tertiary"></span></div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html"><span class="icon i-user tertiary"></span>I Am</a></li>
+            <li><a href="page-proj.html"><span class="icon i-presentation tertiary"></span> Projects (TBD)</a></li>
+            <li><a href="page-cats.html"><span class="icon i-stars tertiary"></span>Cats</a></li>
+            <li><a href="page-misc.html"><span class="icon i-misc tertiary"></span> Misc (TBD)</a></li>
+        </ul>
+    </nav>
+    <div class="sidebar-footer">
+        <p>Dark Mode</p>
+        <label class="switch">
+            <input type="checkbox" class="mode-toggle">
+            <span class="slider round"></span>
+        </label>
+    </div>
+</aside>
+<!-- MOBILE NAV -->
+<aside class="mobile-nav">
+    <div class="sidebar-header" onclick="toggleMobileMenu(this)">
+        <img src="images/logo-bo-1.png" alt="Logo">
+        <h2 class="logo-text">Borys's Place</h2>
+        <div class="menu-toggle"><span class="icon i-menu tertiary"></span></div>
+    </div>
+    <div class="mobile-menu">
         <nav>
             <ul>
-                <li><a href="page-main.html"><span class="icon i-user tertiary"></span>I Am</a></li>
+                <li><a href="index.html"><span class="icon i-user tertiary"></span>I Am</a></li>
                 <li><a href="page-proj.html"><span class="icon i-presentation tertiary"></span> Projects (TBD)</a></li>
                 <li><a href="page-cats.html"><span class="icon i-stars tertiary"></span>Cats</a></li>
                 <li><a href="page-misc.html"><span class="icon i-misc tertiary"></span> Misc (TBD)</a></li>
@@ -28,11 +60,12 @@
         <div class="sidebar-footer">
             <p>Dark Mode</p>
             <label class="switch">
-                <input type="checkbox" id="mode-toggle">
+                <input type="checkbox" class="mode-toggle">
                 <span class="slider round"></span>
             </label>
         </div>
-    </aside>
+    </div>
+</aside>
     <main>
         <header>
             <h1>Projects TBD</h1>

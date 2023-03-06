@@ -1,0 +1,9 @@
+{
+    "@context": "http://schema.org",
+    "@type": "Person",
+    "name": "Borys Kharchenko",
+    "url": "https://kharchenko.work",
+    "sameAs": [
+        "https://github.com/arximus88"
+    ]
+}

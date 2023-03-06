@@ -1,4 +1,4 @@
-const toggleSwitch = document.querySelector('#mode-toggle');
+const toggleSwitches = document.querySelectorAll('.mode-toggle');
 
 function switchTheme(e) {
   if (e.target.checked) {
@@ -10,18 +10,19 @@ function switchTheme(e) {
   }
 }
 
-toggleSwitch.addEventListener('change', switchTheme, false);
+toggleSwitches.forEach(function(toggleSwitch) {
+  toggleSwitch.addEventListener('change', switchTheme);
 
-const currentTheme = localStorage.getItem('theme');
+  const currentTheme = localStorage.getItem('theme');
 
-if (currentTheme) {
-  document.documentElement.setAttribute('data-theme', currentTheme);
-  if (currentTheme === 'dark') {
-    toggleSwitch.checked = true;
-  }
-} 
-else {
+  if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    if (currentTheme === 'dark' && toggleSwitch.checked !== true) {
+      toggleSwitch.checked = true;
+    }
+  } else {
     document.documentElement.setAttribute('data-theme', 'dark');
     localStorage.setItem('theme', 'dark');
     toggleSwitch.checked = true;
   }
+});
