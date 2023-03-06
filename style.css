@@ -78,9 +78,6 @@ body {
 
 
 /* Typography */
-a {
-    color: var(--link-color);
-}
 
 .text-primary {
     color: var(--primary-basic);
@@ -106,12 +103,151 @@ a {
     color: var(--slight-basic);
 }
 
+/* Desktop */
+/* H1: used for main headings */
 h1 {
-    font-size: 3rem;
-    margin-top: 0;
-    margin-bottom: 20px;
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0px;
 }
 
+/* H2: used for subheadings */
+h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0px;
+}
+
+/* H3: used for section headings */
+h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0px;
+}
+
+/* H4: used for sub-section headings */
+h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0px;
+}
+
+a {
+    color: var(--link-color);
+}
+
+.active-text {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0px;
+}
+
+/* Large text: used for emphasis or call to action */
+.large-text {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+/* Medium text: used for main body text */
+.medium-text {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.5;
+}
+
+/* Small text: used for captions, labels, and smaller text */
+.small-text {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.caption {
+    font-size: 14px;
+    font-weight: normal;
+    color: var(--caption-basic);
+}
+
+/* Footnote: used for fine print or footnotes */
+.footnote {
+    font-size: 11px;
+    font-weight: normal;
+    color: var(--caption-basic);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    /* H1: used for main headings */
+    h1 {
+        font-size: 32px;
+        font-weight: bold;
+        margin: 0px;
+    }
+  
+    /* H2: used for subheadings */
+    h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0px;
+    }
+  
+    /* H3: used for section headings */
+    h3 {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0px;
+    }
+  
+    /* H4: used for sub-section headings */
+    h4 {
+      font-size: 14px;
+      font-weight: bold;
+      margin: 0px;
+    }
+  
+    .active-text {
+        font-size: 14px;
+        font-weight: bold;
+        color: var(--tertiary-basic);
+        margin: 0px;
+    }
+    active-text:hover {
+        color: var(--primary-basic);
+    }
+    
+
+    /* Large text: used for emphasis or call to action */
+    .large-text {
+      font-size: 18px;
+      font-weight: normal;
+    }
+  
+    /* Medium text: used for main body text */
+    .medium-text {
+      font-size: 16px;
+      font-weight: normal;
+      line-height: 1.5;
+    }
+  
+    /* Small text: used for captions, labels, and smaller text */
+    .small-text {
+      font-size: 14px;
+      font-weight: normal;
+    }
+
+    .caption {
+      font-size: 14px;
+      font-weight: normal;
+      color: var(--caption-basic);
+    }
+    
+    /* Footnote: used for fine print or footnotes */
+    .footnote {
+      font-size: 12px;
+      font-weight: normal;
+      color: var(--caption-basic);
+    }
+  }
+  
 
 
 /* UI */
@@ -146,8 +282,6 @@ h1 {
 .logo-text {
     margin: 0;
     padding: 0;
-    font-size: 24px;
-    font-weight: bold;
     color: var(--primary-basic);
     text-align: left;
     white-space: nowrap;
@@ -174,7 +308,7 @@ nav a {
     align-items: center;
     padding: 10px 12px;
     font-weight: 700;
-    color: var(--tertiary-basic);
+    color: var(--caption-basic);
     text-decoration: none;
     gap: 12px;
     margin: 0 -12px;
@@ -191,9 +325,17 @@ nav i {
     margin-right: 10px;
 }
 
+nav ul li a.active {
+    color: var(--primary-color);
+  }
+
 .sidebar-footer {
     padding: 20px;
     text-align: center;
+    color: var(--tertiary-basic);
+}
+.sidebar-footer:hover {
+    color: var(--primary-accent);
 }
 
 
@@ -324,6 +466,10 @@ section {
       }
       .sidebar-header:active:after {
         size: 0.9;
+      }
+
+      .sidebar-header img {
+        max-width: 32px;
       }
       /* [data-theme="light"] .sidebar-header:before {} */
     }
