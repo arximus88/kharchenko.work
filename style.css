@@ -329,15 +329,62 @@ nav ul li a.active {
     color: var(--primary-color);
   }
 
-.sidebar-footer {
+/* .sidebar-footer {
     padding: 20px;
     text-align: center;
     color: var(--tertiary-basic);
 }
 .sidebar-footer:hover {
     color: var(--primary-accent);
-}
+} */
 
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    font-weight: 700;
+    color: var(--caption-basic);
+    text-decoration: none;
+    gap: 12px;
+    margin: 0 -12px;
+    border-radius: 12px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropdown-toggle:hover {
+    background-color: var(--slight-basic);
+    color: var(--primary-basic);
+  }
+  
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    font-weight: 700;
+    color: var(--caption-basic);
+    text-decoration: none;
+    gap: 12px;
+    margin: 0 -12px;
+    border-radius: 12px;
+  }
+  
+  .dropdown-item:hover {
+    background-color: var(--slight-basic);
+    color: var(--primary-basic);
+  }
+  
+  .dropdown-item.active,
+  .dropdown-item:active {
+    background-color: var(--primary-basic);
+    color: #fff;
+  }
+  
+  .dropdown-item.active .icon {
+    color: #fff;
+  }
+  
 
 .menu-toggle {
     display: none;
@@ -641,23 +688,27 @@ a:hover .icon {
   }
 
   /* Icons -- Images ----------*/
-  .icon.i-presentation {background-image: url(images/icons/presentation-chart-01.svg);}
-  [data-theme="light"] .icon.i-presentation {background-image: url(images/icons/presentation-chart-01-inv.svg);}
+.icon.i-presentation {background-image: url(images/icons/presentation-chart-01.svg);}
+[data-theme="light"] .icon.i-presentation {background-image: url(images/icons/presentation-chart-01-inv.svg);}
 
-  .icon.i-user {background-image: url(images/icons/user-edit.svg);}
-  [data-theme="light"] .icon.i-user {background-image: url(images/icons/user-edit-inv.svg);}
+.icon.i-user {background-image: url(images/icons/user-edit.svg);}
+[data-theme="light"] .icon.i-user {background-image: url(images/icons/user-edit-inv.svg);}
 
-  .icon.i-misc {background-image: url(images/icons/code-snippet-02.svg);}
-  [data-theme="light"] .icon.i-misc {background-image: url(images/icons/code-snippet-02-inv.svg);  }
+.icon.i-misc {background-image: url(images/icons/code-snippet-02.svg);}
+[data-theme="light"] .icon.i-misc {background-image: url(images/icons/code-snippet-02-inv.svg);  }
 
-  .icon.i-stars {background-image: url(images/icons/stars-03.svg);}
-  [data-theme="light"] .icon.i-stars {background-image: url(images/icons/stars-03-inv.svg);}
+.icon.i-stars {background-image: url(images/icons/stars-03.svg);}
+[data-theme="light"] .icon.i-stars {background-image: url(images/icons/stars-03-inv.svg);}
 
-  .icon.i-menu {background-image: url(images/icons/menu-04.png);}
-  [data-theme="light"] .icon.i-menu {background-image: url(images/icons/menu-04-inv.png);}
+.icon.i-menu {background-image: url(images/icons/menu-04.png);}
+[data-theme="light"] .icon.i-menu {background-image: url(images/icons/menu-04-inv.png);}
 
+.icon.i-dark-theme {background-image: url(images/icons/moon-02.svg);}
+[data-theme="light"] .icon.i-dark-theme {background-image: url(images/icons/moon-02-inv.svg);}
 
+.icon.i-light-theme {background-image: url(images/icons/sun.svg);}
+[data-theme="light"] .icon.i-light-theme {background-image: url(images/icons/sun-inv.svg);}
 
+.icon.i-default-theme {background-image: url(images/icons/lightbulb-01.svg);}
+[data-theme="light"] .icon.i-default-theme {background-image: url(images/icons/lightbulb-01-inv.svg);}
 
-  /* CREDITS */
-  /* Video by <a href="https://pixabay.com/users/tommyvideo-3092371/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=video&amp;utm_content=121039">Tomislav Jakupec</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=video&amp;utm_content=121039">Pixabay</a> */
