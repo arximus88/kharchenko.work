@@ -1,8 +1,3 @@
-// function toggleMobileMenu (menu) {
-//   menu.classList.toggle('open');
-// }
-
-
 const sidebarHeader = document.querySelector('.sidebar-header');
 const mobileMenu = document.querySelector('.mobile-menu');
 

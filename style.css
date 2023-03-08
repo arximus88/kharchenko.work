@@ -329,14 +329,12 @@ nav ul li a.active {
     color: var(--primary-color);
   }
 
-/* .sidebar-footer {
-    padding: 20px;
-    text-align: center;
-    color: var(--tertiary-basic);
+.dropdown-menu {
+  display: none;
 }
-.sidebar-footer:hover {
-    color: var(--primary-accent);
-} */
+.dropdown-menu.show {
+  display: block;
+}
 
 .dropdown-toggle {
     display: flex;
@@ -611,14 +609,14 @@ input:checked+.slider:before {
   .card {
     position: relative;
     background-color: var(--body-bg-color);
-    box-shadow: 0 0 10px var(--slight-basic);
+    box-shadow: 0px 0px 2px var(--slight-basic);
     border-radius: 8px;
     overflow: hidden;
-    transition: transform 0.3s ease-out;
+    transition: box-shadow 0.1s ease-out;
   }
   
   .card:hover {
-    border: var(--tertiary-basic) solid 1px;
+    box-shadow: 0px 4px 8px var(--slight-basic);
   }
   
   .card-image {
