@@ -66,8 +66,7 @@ body {
 }
 
 
-[data-theme="light"] #bg-video {filter: invert(100%) hue-rotate(140deg);}
-[data-theme="light"] .bg-img img {filter: invert(100%) hue-rotate(140deg);}
+[data-theme="light"] .bg-video {filter: invert(100%) hue-rotate(140deg);}
 
 @media (prefers-reduced-motion: reduce) {
 .bg-video {

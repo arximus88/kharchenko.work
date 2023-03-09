@@ -33,13 +33,21 @@
                 <li><a href="page-misc.html"><span class="icon i-misc tertiary"></span> Misc (TBD)</a></li>
             </ul>
         </nav>
+
         <div class="sidebar-footer">
-            <p>Dark Mode</p>
-            <label class="switch">
-                <input type="checkbox" class="mode-toggle">
-                <span class="slider round"></span>
-            </label>
-        </div>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="icon i-dark-theme tertiary"></span> Theme
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#" data-theme="dark"><span class="icon i-dark-theme tertiary"></span> Dark</a>
+                <a class="dropdown-item" href="#" data-theme="light"><span class="icon i-light-theme tertiary"></span> Light</a>
+                <a class="dropdown-item" href="#" data-theme="system"><span class="icon i-default-theme tertiary"></span> System Default</a>
+              </div>
+            </div>
+          </div>
+          
+        
     </aside>
  <!-- MOBILE NAV -->
     <aside class="mobile-nav">
@@ -58,12 +66,17 @@
                 </ul>
             </nav>
             <div class="sidebar-footer">
-                <p>Dark Mode</p>
-                <label class="switch">
-                    <input type="checkbox" class="mode-toggle">
-                    <span class="slider round"></span>
-                </label>
-            </div>
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="icon i-dark-theme tertiary"></span> Theme
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#" data-theme="dark"><span class="icon i-dark-theme tertiary"></span> Dark</a>
+                    <a class="dropdown-item" href="#" data-theme="light"><span class="icon i-light-theme tertiary"></span> Light</a>
+                    <a class="dropdown-item" href="#" data-theme="system"><span class="icon i-default-theme tertiary"></span> System Default</a>
+                  </div>
+                </div>
+              </div>
         </div>
     </aside>
     <main>
