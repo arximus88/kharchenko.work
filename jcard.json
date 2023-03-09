@@ -1,0 +1,19 @@
+[
+    {
+      "order": 1,
+      "folder": "projects/project-1"
+    },
+    {
+      "order": 2,
+      "folder": "projects/project-2"
+    },
+    {
+      "order": 3,
+      "folder": "projects/project-3"
+    },
+    {
+      "order": 4,
+      "folder": "projects/project-4"
+    }
+  ]
+  
