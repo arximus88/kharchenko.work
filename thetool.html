@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Page Title</title>
+
+
+<style>
+    body {
+  font-family: 'Arial', sans-serif;
+  background-color: #F5F5F5;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+.font-list {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.font-list li {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.font-list li:hover {
+  transform: scale(1.05);
+}
+
+.font-list li.active {
+  border: 2px solid #0077cc;
+}
+
+.canvas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  padding: 2rem;
+  border: 2px dashed #BDBDBD;
+  margin-bottom: 2rem;
+}
+
+.canvas h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-right: 2rem;
+}
+
+.canvas p {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+.pairs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.pair {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 50px;
+  background-color: #0077cc;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.pair:hover {
+  transform: scale(1.05);
+}
+
+.pair.active {
+  background-color: #fff;
+  color: #0077cc;
+  border: 2px solid #0077cc;
+}
+
+</style>
+</head>
+
+
+
+
+
+<body>
+	<header>
+		<h1>Pair Your Font</h1>
+	</header>
+
+	<main>
+		<!-- Main content goes here -->
+    <div class="canvas">
+        <h1 id="header" contenteditable="true">Heading</h1>
+        <p id="paragraph" contenteditable="true">Paragraph</p>
+      </div>
+      
+      <div class="font-list">
+        <select id="header-font">
+          <option value="Arial">Arial</option>
+          <option value="Helvetica">Helvetica</option>
+          <option value="Times New Roman">Times New Roman</option>
+          <option value="Courier New">Courier New</option>
+        </select>
+        <select id="paragraph-font">
+          <option value="Arial">Arial</option>
+          <option value="Helvetica">Helvetica</option>
+          <option value="Times New Roman">Times New Roman</option>
+          <option value="Courier New">Courier New</option>
+        </select>
+      </div>
+      
+      <div class="premade-font-pairs">
+        <button id="pair1" onclick="setPair(1)">Pair 1</button>
+        <button id="pair2" onclick="setPair(2)">Pair 2</button>
+        <button id="pair3" onclick="setPair(3)">Pair 3</button>
+      </div>
+</main>
+
+
+<footer>
+    <!-- Footer content goes here -->
+</footer>
+
+</body>
+<script>
+
+const header = document.getElementById('header');
+const paragraph = document.getElementById('paragraph');
+const headerFont = document.getElementById('header-font');
+const paragraphFont = document.getElementById('paragraph-font');
+
+headerFont.addEventListener('change', () => {
+  header.style.fontFamily = headerFont.value;
+});
+
+paragraphFont.addEventListener('change', () => {
+  paragraph.style.fontFamily = paragraphFont.value;
+});
+
+function setPair(pairNumber) {
+  if (pairNumber === 1) {
+    header.style.fontFamily = 'Arial';
+    paragraph.style.fontFamily = 'Helvetica';
+  } else if (pairNumber === 2) {
+    header.style.fontFamily = 'Times New Roman';
+    paragraph.style.fontFamily = 'Courier New';
+  } else if (pairNumber === 3) {
+    header.style.fontFamily = 'Helvetica';
+    paragraph.style.fontFamily = 'Times New Roman';
+  }
+}
+
+
+</script>
+
+
+</html>
