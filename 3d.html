@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>SVG into 3D</title>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+      </style>
+</head>
+<body>
+    <main>
+        <header>
+            <p><a href="javascript:history.back()">← Go Back</a></p>
+            <h1>SVG into 3D</h1>
+            <p class="text-caption">Site is under constraction</p>
+        </header>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+        <script>
+          // Set up the Three.js scene, camera, and renderer
+          const scene = new THREE.Scene();
+          const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+          const renderer = new THREE.WebGLRenderer();
+          renderer.setSize(window.innerWidth, window.innerHeight);
+          document.body.appendChild(renderer.domElement);
+      
+          // Load and parse the SVG
+          fetch('images/icons-raw/stars-03.svg')
+            .then((response) => response.text())
+            .then((svgString) => {
+              const parser = new DOMParser();
+              const svgDoc = parser.parseFromString(svgString, 'image/svg+xml');
+              const paths = svgDoc.querySelectorAll('path');
+      
+              // Create and extrude the shapes
+              const extrudeSettings = { depth: 1, bevelEnabled: false };
+              const material = new THREE.MeshBasicMaterial({ color: 0xffffff });
+      
+              paths.forEach((path) => {
+                const shape = new THREE.Shape().fromPoints(path);
+                const geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+                const mesh = new THREE.Mesh(geometry, material);
+                scene.add(mesh);
+              });
+      
+              // Set up the camera position and render loop
+              camera.position.z = 5;
+              const animate = function () {
+                requestAnimationFrame(animate);
+                renderer.render(scene, camera);
+              };
+              animate();
+            });
+        </script>
+    
+    
+    
+    </main>
+    <script src="/scripts/theme-switcher.js"></script>
+    <script src="/scripts/hamburger.js"></script>
+    <script src="/scripts/nav-link.js"></script>
+
+</body>
