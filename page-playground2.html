@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cat's Playground</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+
+      #playground {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        background-color: #333333;
+      }
+
+      .cat,
+      .ball {
+        position: absolute;
+      }
+
+      .cat {
+        width: 32px; /* Set the width of your cat images */
+        height: 32px; /* Set the height of your cat images */
+      }
+
+      .ball {
+        width: 16px; /* Set the width of the ball */
+        height: 16px; /* Set the height of the ball */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="playground">
+      <img src="images/kitty-bulka.png" class="cat" id="cat1" />
+    </div>
+
+    <script>
+      const cat = document.getElementById("cat1");
+      const speed = 1.5;
+
+      let catX = Math.random() * (window.innerWidth - cat.clientWidth);
+      let catY = Math.random() * (window.innerHeight - cat.clientHeight);
+      let targetX = Math.random() * (window.innerWidth - cat.clientWidth);
+      let targetY = Math.random() * (window.innerHeight - cat.clientHeight);
+
+      function moveCat() {
+        const dx = targetX - catX;
+        const dy = targetY - catY;
+
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < 1) {
+          targetX = Math.random() * (window.innerWidth - cat.clientWidth);
+          targetY = Math.random() * (window.innerHeight - cat.clientHeight);
+        } else {
+          catX += (dx / distance) * speed;
+          catY += (dy / distance) * speed;
+
+          cat.style.left = `${catX}px`;
+          cat.style.top = `${catY}px`;
+        }
+
+        requestAnimationFrame(moveCat);
+      }
+
+      moveCat();
+    </script>
+  </body>
+</html>

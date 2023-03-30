@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cat Playground</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.17.1/matter.min.js"></script>
+    <style>
+      #cat-container {
+        position: relative;
+        width: 99vw;
+        height: 99vh;
+        overflow: hidden;
+      }
+      .cat {
+        position: absolute;
+        width: 64px;
+        height: 64px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="cat-container">
+      <img src="images/kitty-bulka.png" class="cat" id="cat1" />
+    </div>
+    <script>
+      const { Engine, Render, World, Bodies, Body, Mouse, MouseConstraint } =
+        Matter;
+
+      const cat = document.getElementById("cat1");
+      const catContainer = document.getElementById("cat-container");
+
+      // Create a Matter.js engine
+      const engine = Matter.Engine.create();
+      const world = engine.world;
+      const render = Matter.Render.create({
+        element: catContainer,
+        engine: engine,
+        options: {
+          width: catContainer.clientWidth,
+          height: catContainer.clientHeight,
+          wireframes: false,
+          background: "transparent",
+        },
+      });
+
+      // Create a body
+      const catBody = Matter.Bodies.rectangle(
+        cat.width / 2 + 32, // Adjust x
+        cat.height / 2 + 32, // Adjust y
+        cat.width,
+        cat.height,
+        {
+          chamfer: { radius: 20 }, // Add rounded corners to the top of the body
+          render: {
+            sprite: {
+              texture: "images/kitty-bulka.png",
+            },
+          },
+        }
+      );
+
+      // Set the cat's angle and angular velocity so that it lands on its paws
+      Matter.Body.setAngle(catBody, Math.PI); // Rotate the cat by 180 degrees (π radians)
+      Matter.Body.setAngularVelocity(catBody, 0); // Set the cat's angular velocity to 0, so it doesn't rotate while falling
+
+      // Add the cat body to the world
+      Matter.World.add(world, catBody);
+
+      // Add boundaries to keep the cat inside the container
+      const walls = [
+        Matter.Bodies.rectangle(
+          render.options.width / 2,
+          32, // Move the wall down by 32px
+          render.options.width - 64, // Reduce width by 64px
+          20,
+          { isStatic: true }
+        ),
+        Matter.Bodies.rectangle(
+          render.options.width - 32, // Move the wall to the left by 32px
+          render.options.height / 2,
+          22,
+          render.options.height - 64, // Reduce height by 64px
+          { isStatic: true }
+        ),
+        Matter.Bodies.rectangle(
+          render.options.width / 2,
+          render.options.height - 32, // Move the wall up by 32px
+          render.options.width - 64, // Reduce width by 64px
+          20,
+          { isStatic: true }
+        ),
+        Matter.Bodies.rectangle(
+          32, // Move the wall to the right by 32px
+          render.options.height / 2,
+          22,
+          render.options.height - 64, // Reduce height by 64px
+          { isStatic: true }
+        ),
+      ];
+      Matter.World.add(world, walls);
+
+      // Run the engine and the renderer
+      Matter.Engine.run(engine);
+      Matter.Render.run(render);
+
+      // Apply random forces to the cat body to make it move
+    //   setInterval(() => {
+    //     const angle = Math.random() * Math.PI * 2;
+    //     const force = Math.random() * 0.005;
+
+    //     Matter.Body.applyForce(catBody, catBody.position, {
+    //       x: Math.cos(angle) * force,
+    //       y: Math.sin(angle) * force,
+    //     });
+    //   }, 100);
+
+      //MOUSE
+      const mouse = Mouse.create(render.canvas);
+      const mouseConstraint = MouseConstraint.create(engine, {
+        mouse: mouse,
+        constraint: {
+          render: {
+            visible: false,
+          },
+        },
+      });
+      
+      // Add
+      World.add(engine.world, mouseConstraint);
+
+      // Allow the canvas to capture mouse events
+      render.canvas.addEventListener("mousedown", () => {
+        render.canvas.focus();
+      });
+
+      render.canvas.addEventListener("mouseup", () => {
+        render.canvas.blur();
+      });
+
+      render.mouse = mouse;
+      cat.remove();
+    </script>
+  </body>
+</html>

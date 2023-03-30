@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cat's Playground</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+
+      #playground {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        background-color: #333333;
+      }
+
+      .cat,
+      .ball {
+        position: absolute;
+      }
+
+      .cat {
+        width: 32px; /* Set the width of your cat images */
+        height: 32px; /* Set the height of your cat images */
+      }
+
+      .ball {
+        width: 16px; /* Set the width of the ball */
+        height: 16px; /* Set the height of the ball */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="playground">
+      <img src="images/kitty-bulka.png" class="cat" id="cat1" />
+      <img src="images/kitty-ceks.png" class="cat" id="cat2" />
+      <img src="images/kitty-kava.png" class="cat" id="cat3" />
+      <img src="images/kitty-mo.png" class="cat" id="cat4" />
+      <img src="images/kitty-zuki.png" class="cat" id="cat5" />
+      <img src="images/ball.png" class="ball" id="ball" />
+    </div>
+
+    <script>
+      const cats = document.querySelectorAll(".cat");
+      const ball = document.getElementById("ball");
+      const playground = document.getElementById("playground");
+
+      // Move the cats and ball to random positions within the playground
+      function moveRandomly(element) {
+        const maxX = playground.clientWidth - element.clientWidth;
+        const maxY = playground.clientHeight - element.clientHeight;
+        const x = Math.floor(Math.random() * maxX);
+        const y = Math.floor(Math.random() * maxY);
+        element.style.left = `${x}px`;
+        element.style.top = `${y}px`;
+      }
+
+      // Move all cats and ball to random positions initially
+      cats.forEach((cat) => moveRandomly(cat));
+      moveRandomly(ball);
+
+      // Move cats and ball every 2 seconds
+      setInterval(() => {
+        cats.forEach((cat) => moveRandomly(cat));
+        moveRandomly(ball);
+      }, 2000);
+
+      // Handle cat and ball interaction
+      playground.addEventListener("mousemove", (event) => {
+        const { clientX, clientY } = event;
+        const ballX = ball.offsetLeft;
+        const ballY = ball.offsetTop;
+        cats.forEach((cat) => {
+          const catX = cat.offsetLeft;
+          const catY = cat.offsetTop;
+          if (Math.abs(clientX - catX) < 64 && Math.abs(clientY - catY) < 64) {
+            moveRandomly(cat);
+          }
+          if (Math.abs(ballX - catX) < 64 && Math.abs(ballY - catY) < 64) {
+            moveRandomly(ball);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
